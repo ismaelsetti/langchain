@@ -4,7 +4,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langserve import add_routes
 import uvicorn
 import os
-from langchain_community.llms import Ollama
+from langchain_community.chat_models import ChatOllama
 from dotenv import load_dotenv
 
 
@@ -25,7 +25,7 @@ add_routes(
 )
 
 llm1 = ChatOpenAI()
-llm2 = Ollama(model="llama2")
+llm2 = ChatOllama(model="llama2")
 
 prompt1 = ChatPromptTemplate.from_template("Write me an essay about {topic} with 100 words")
 prompt2 = ChatPromptTemplate.from_template("Write me a poem about {topic} with 100 words")
